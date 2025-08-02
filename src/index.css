@@ -1,0 +1,7 @@
+body{
+ background: linear-gradient(to right, #984D38 0%, #181E41 63%, #100 100%);
+}
+
+.d-shape {
+  clip-path: path('M0,0 H300 A200,250 0 0 1 300,480 H0 Z');
+}
