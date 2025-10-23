@@ -1,28 +1,27 @@
 import solarflare from "../assets/solarflare.png";
 import talentunlockend from "../assets/talentunlockend.png";
-import yuitech from "../assets/yuitech.png";
 import incometax from "../assets/incometax.png";
-import devprashna from "../assets/devprashna.png";
-import documentuploader from "../assets/documentuploader.png";
-
+import focusobjdetc from "../assets/focusobjdetc.png"
+import earthquick from "../assets/earthquick.png"
+import imagereco from "../assets/imagereco.png"
 const projects = [
   {
-    img: documentuploader,
-    title: "Smart Document Uploader",
-    description: "A secure platform to upload, manage, and retrieve documents with ease.",
-    link: "https://smart-document-uploader.vercel.app/"
+    img: focusobjdetc,
+    title: "Focus Object Detection",
+    description: "Focus Object Detection: A system that identifies and tracks the most relevant objects in a scene for enhanced attention and analysis.",
+    link: "https://focus-object-detection-in-video-int.vercel.app/"
   },
   {
-    img: talentunlockend,
-    title: "Talent Unlocked",
-    description: "A career platform connecting skilled individuals with the right job opportunities.",
-    link: "https://talent-unlocked.vercel.app/"
+    img: imagereco,
+    title: "Ai Image Rerecognition Chatbot",
+    description: "AI Image Rerecognition Chatbot: A chatbot that analyzes and recognizes images, providing insights or answers based on visual content.",
+    link: "https://ai-image-rerecognition-chatbot.vercel.app/"
   },
   {
-    img: yuitech,
-    title: "YuiTech Consultant Services",
-    description: "A corporate site for a consulting firm offering IT and digital solutions.",
-    link: "https://invent-tree.vercel.app/en"
+    img: earthquick,
+    title: "Earthquake Visualization",
+    description: "Earthquake Visualization: An interactive system that displays real-time earthquake data for better understanding and analysis of seismic activity",
+    link: "https://earthquake-visualization-ten.vercel.app/"
   },
   {
     img: incometax,
@@ -31,10 +30,10 @@ const projects = [
     link: "https://income-tax-calculator2.vercel.app/"
   },
   {
-    img: devprashna,
-    title: "Devprashna",
-    description: "An online platform to book pooja services from verified pandits across India.",
-    link: "https://dev-prashna-frontend.vercel.app/"
+    img: talentunlockend,
+    title: "Online Assessment & Candidate Management",
+    description: "Online Assessment & Candidate Management: A platform to create, conduct, and manage assessments while efficiently tracking candidate performance.",
+    link: "https://nivesh-jano-dashboard.vercel.app/"
   },
   {
     img: solarflare,

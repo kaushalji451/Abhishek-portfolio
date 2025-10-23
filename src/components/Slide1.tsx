@@ -1,29 +1,24 @@
-import Navbar from "./Navbar";
-import { FaInstagram } from "react-icons/fa";
-import { TbBrandLinkedin } from "react-icons/tb";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaGithub } from "react-icons/fa6";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
-import type { Variants } from "framer-motion";
+import { FaInstagram, FaGithub } from "react-icons/fa";
+import { TbBrandLinkedin } from "react-icons/tb";
+import { Link } from "react-router-dom";
+
 const text = "MERN Stack Developer";
 
-const avatarBgVariants: Variants = {
-  animate: {
-    background: [
-      "linear-gradient(135deg, #38bdf8 0%, #b983ff 100%)",
-      "linear-gradient(135deg, #ffabf7 0%, #38bdf8 100%)",
-      "linear-gradient(135deg, #b983ff 0%, #ffda77 100%)",
-      "linear-gradient(135deg, #38bdf8 0%, #b983ff 100%)"
-    ],
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      repeatType: 'loop',
-      ease: [0, 0, 1, 1] // linear easing
-    }
-  }
-};
+const Navbar = () => (
+  <nav className="w-full py-4 mb-8">
+    <div className="flex justify-between items-center">
+      <h2 className="text-xl sm:text-2xl font-bold text-white">Portfolio</h2>
+      <div className="hidden md:flex gap-6 text-gray-300">
+        <a href="#home" className="hover:text-white transition">Home</a>
+        <a href="#about" className="hover:text-white transition">About</a>
+        <a href="#projects" className="hover:text-white transition">Projects</a>
+        <a href="#contact" className="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+);
 
 const Slide1 = () => {
   const controls = useAnimation();
@@ -36,28 +31,40 @@ const Slide1 = () => {
     }));
   }, [controls]);
 
+  let handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Resume_AK.pdf"; // path inside public folder
+    link.download = "Abhishek_Resume.pdf"; // name for downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return (
-    <div className="px-4 sm:px-8 md:px-16 lg:px-20 pt-4 overflow-hidden min-h-screen flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 px-4 sm:px-8 md:px-16 lg:px-20 pt-4">
       <Navbar />
 
-      <div className="flex flex-col-reverse md:flex-row items-center max-md:justify-center justify-between flex-grow min-h-[calc(100vh-64px)]">
-
-        {/* Left Content */}
+      <div className="flex items-center justify-center min-h-[calc(100vh-120px)] py-8 sm:py-12">
         <motion.div
-          className="w-full md:w-2/3 flex flex-col justify-center space-y-6 text-center md:text-left min-h-full py-10 md:py-0"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          className="w-full max-w-4xl flex flex-col justify-center space-y-6 sm:space-y-8 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div>
-            <h3 className="text-lg sm:text-xl text-gray-100">Hi, I am</h3>
+          {/* Introduction */}
+          <div className="space-y-2 sm:space-y-3">
+            <h3 className="text-base sm:text-lg md:text-xl text-gray-300">
+              Hi, I am
+            </h3>
             <h3
-              className="text-lg sm:text-xl text-white font-semibold"
+              className="text-xl sm:text-2xl md:text-3xl text-white font-semibold"
               style={{ textShadow: "0 2px 12px rgba(120,180,250,0.45)" }}
             >
               Abhishek Kumar Kaushal
             </h3>
-            <h1 className="text-3xl sm:text-4xl max-md:px-9 text-center md:text-5xl font-bold py-3 sm:py-5 leading-tight flex flex-wrap">
+
+            {/* Animated Title */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold py-3 sm:py-5 leading-tight flex flex-wrap justify-center">
               {text.split("").map((char, index) => (
                 <motion.span
                   key={index}
@@ -72,67 +79,56 @@ const Slide1 = () => {
             </h1>
           </div>
 
-          <ul className="flex justify-center md:justify-start gap-4 pb-6">
-            <li className="p-2 rounded-full border border-gray-400 text-xl cursor-pointer hover:text-white hover:border-white transition"><FaInstagram /></li>
-            <li className="p-2 rounded-full border border-gray-400 text-xl cursor-pointer hover:text-white hover:border-white transition"><TbBrandLinkedin /></li>
-            <li className="p-2 rounded-full border border-gray-400 text-xl cursor-pointer hover:text-white hover:border-white transition"><FaXTwitter /></li>
-            <li className="p-2 rounded-full border border-gray-400 text-xl cursor-pointer hover:text-white hover:border-white transition"><FaGithub /></li>
+          {/* Social Links */}
+          <ul className="flex justify-center gap-3 sm:gap-4 pb-4 sm:pb-6">
+            <Link to={"https://www.instagram.com/abhishekkaushal2879/"} className="p-2 sm:p-2.5 rounded-full border border-gray-400 text-lg sm:text-xl cursor-pointer hover:text-white hover:border-white hover:scale-110 transition-all duration-300">
+              <FaInstagram />
+            </Link>
+            <Link to={"https://www.linkedin.com/in/abhishek-kumar-kaushal-785611318"} className="p-2 sm:p-2.5 rounded-full border border-gray-400 text-lg sm:text-xl cursor-pointer hover:text-white hover:border-white hover:scale-110 transition-all duration-300">
+              <TbBrandLinkedin />
+            </Link>
+            <Link to={"https://github.com/kaushalji451"} className="p-2 sm:p-2.5 rounded-full border border-gray-400 text-lg sm:text-xl cursor-pointer hover:text-white hover:border-white hover:scale-110 transition-all duration-300">
+              <FaGithub />
+            </Link>
           </ul>
 
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
               type="button"
-              className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
-                  hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
-                  font-bold rounded-lg py-2 px-6 text-center transition hover:shadow-lg hover:scale-105"
+              className="w-full sm:w-auto text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
+                hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
+                font-bold rounded-lg py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base text-center 
+                transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
             >
               Hire Me
             </button>
             <button
+              onClick={handleDownload}
               type="button"
-              className="text-white border border-white font-bold rounded-lg py-2 px-6 text-center hover:bg-white hover:text-black transition"
+              className="w-full sm:w-auto text-white border-2 border-white font-bold rounded-lg cursor-pointer
+                py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base text-center 
+                hover:bg-white hover:text-slate-900 transition-all duration-300 hover:scale-105"
             >
               Download CV
             </button>
           </div>
 
-          <div className="bg-white/20 backdrop-blur-lg w-full sm:w-2/3 flex justify-between py-6 mt-6 px-4 rounded-lg text-center mx-auto md:mx-0 shadow-lg shadow-purple-200/10">
-            <div className="border-r border-gray-400 w-1/3">
-              <p className="text-xl font-bold text-white">5+</p>
-              <p className="text-sm text-gray-100">Experience</p>
-            </div>
-            <div className="border-r border-gray-400 w-1/3">
-              <p className="text-xl font-bold text-white">20+</p>
-              <p className="text-sm text-gray-100">Projects</p>
-            </div>
-            <div className="w-1/3">
-              <p className="text-xl font-bold text-white">80+</p>
-              <p className="text-sm text-gray-100">Happy Clients</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Image Section with animated background */}
-        <motion.div
-          className="w-full md:w-1/3 flex items-center justify-center min-h-full md:mb-0"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-        >
+          {/* Stats Section */}
           <motion.div
-            className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden flex items-center justify-center shadow-2xl"
-            variants={avatarBgVariants}
-            animate="animate"
-            style={{
-              boxShadow: "0 8px 36px 0 rgba(68, 0, 255, 0.18)",
-              border: "4px solid rgba(234,234,255,0.08)"
-            }}
+            className="bg-white/10 backdrop-blur-lg w-full max-w-md mx-auto flex justify-between py-5 sm:py-6 mt-6 sm:mt-8 px-4 sm:px-6 rounded-lg shadow-xl shadow-purple-500/20 border border-white/10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <img
-              src="https://res.cloudinary.com/dpbpu5b0v/image/upload/v1754126001/Untitled_design-removebg-preview_ze3lmy.png"
-              alt="Profile"
-              className="w-full h-full object-contain"
-            />
+            <div className="border-r border-gray-400/50 flex-1">
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white">6+</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Month Experience</p>
+            </div>
+            <div className="border-r border-gray-400/50 flex-1">
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white">50+</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-1">Projects</p>
+            </div>
           </motion.div>
         </motion.div>
       </div>

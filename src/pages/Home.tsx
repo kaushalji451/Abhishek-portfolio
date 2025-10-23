@@ -11,14 +11,12 @@ const Home = () => {
     <main className="text-white">
       {/* slide 1 */}
       <Slide1 />
-
       {/* border */}
       <div className="bg-black py-6">
         <div className="w-full sm:w-2/3 md:w-1/2 lg:w-2/5 mx-auto flex flex-wrap justify-center sm:justify-between gap-4 sm:gap-5 text-sm sm:text-base md:text-lg opacity-70 font-serif text-white">
-          <Link to="/" className="hover:underline">LinkedIn</Link>
-          <Link to="/" className="hover:underline">GitHub</Link>
-          <Link to="/" className="hover:underline">Twitter</Link>
-          <Link to="/" className="hover:underline">Instagram</Link>
+          <Link to="/https://www.linkedin.com/in/abhishek-kumar-kaushal-785611318" className="hover:underline">LinkedIn</Link>
+          <Link to="/https://github.com/kaushalji451" className="hover:underline">GitHub</Link>
+          <Link to="/https://www.instagram.com/abhishekkaushal2879/" className="hover:underline">Instagram</Link>
         </div>
       </div>
 
