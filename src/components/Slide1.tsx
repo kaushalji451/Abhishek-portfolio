@@ -10,12 +10,6 @@ const Navbar = () => (
   <nav className="w-full py-4 mb-8">
     <div className="flex justify-between items-center">
       <h2 className="text-xl sm:text-2xl font-bold text-white">Portfolio</h2>
-      <div className="hidden md:flex gap-6 text-gray-300">
-        <a href="#home" className="hover:text-white transition">Home</a>
-        <a href="#about" className="hover:text-white transition">About</a>
-        <a href="#projects" className="hover:text-white transition">Projects</a>
-        <a href="#contact" className="hover:text-white transition">Contact</a>
-      </div>
     </div>
   </nav>
 );

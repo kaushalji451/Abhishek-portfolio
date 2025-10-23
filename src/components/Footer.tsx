@@ -26,36 +26,7 @@ const Footer = () => (
           </motion.div>
         </div>
 
-        {/* MIDDLE - Quick Links */}
-        <div className="lg:col-span-1">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">Quick Links</h3>
-            <nav className="flex flex-col gap-3">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About", path: "#about" },
-                { name: "Skills", path: "#skills" },
-                { name: "Projects", path: "#projects" },
-                { name: "Experience", path: "#experience" },
-                { name: "Contact", path: "#contact" }
-              ].map((link, idx) => (
-                <a
-                  key={idx}
-                  href={link.path}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm sm:text-base flex items-center gap-2 group"
-                >
-                  <span className="w-0 h-0.5 bg-cyan-400 group-hover:w-4 transition-all duration-300"></span>
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </motion.div>
-        </div>
+       
 
         {/* RIGHT SIDE - Social & Contact */}
         <div className="lg:col-span-1">
