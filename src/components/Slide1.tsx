@@ -34,6 +34,16 @@ const Slide1 = () => {
     document.body.removeChild(link);
   }
 
+  let handleHireMe = ()=>{
+      const scrollHeight = document.documentElement.scrollHeight;
+  const targetPosition = scrollHeight / 1.25; // middle of the page
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: "smooth",
+  });
+  }
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 px-4 sm:px-8 md:px-16 lg:px-20 pt-4">
       <Navbar />
@@ -90,6 +100,7 @@ const Slide1 = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
               type="button"
+              onClick={handleHireMe}
               className="w-full sm:w-auto text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
                 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
                 font-bold rounded-lg py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base text-center 
